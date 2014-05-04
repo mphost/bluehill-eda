@@ -1,0 +1,8 @@
+<div id="h-{{ site.slug }}" class="contact-widget hcard v-card" itemscope="" itemtype="http://schema.org/Organization">
+  <a class="u-url url" itemprop="url" href="{{ site.full_url }} "><span class="p-org fn org" itemprop="name">{{ site.long_name }}</span> </a>
+  <div class="h-adr adr" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+    <span class="p-street-address street-address" itemprop="streetAddress"> {{ settings.address.address1 }} {{ settings.address.address2 }}  </span><br>
+    <span class="p-locality locality" itemprop="addressLocality">{{ settings.address.city }}</span>, <span class="p-region region" itemprop="addressRegion">{{ settings.address.state }}</span>, <span class="p-postal-code postal-code" itemprop="postalCode">{{ settings.address.zip }}</span>, <span class="country-name" itemprop="addressCountry">{{ settings.address.country_code }}</span>
+  </div> {% if settings.address.has_phone_number? %}
+  Phone: <span class="p-tel tel" itemprop="telephone">{{ settings.address.phone_number }}</span>{% endif %}
+</div><!--/.contact-widget--> 

@@ -1,0 +1,7 @@
+{% for page in tag.most_recent_published_pages limit: 8 %}
+<div class="gallery-post">
+<a href="{{ page.url }}"><img class="img-polaroid" src="{{ page.attachments.first.url }}" /></a>
+  <a href="{{ page.url }}"><h3>{{ page.headline }}</h3></a>
+</div>
+{% endfor %}
+

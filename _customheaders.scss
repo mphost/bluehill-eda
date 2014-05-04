@@ -1,0 +1,102 @@
+// custom blog page header
+
+.page-pages-show-blog {
+  .header-container {
+    background: url($header-texture-2) no-repeat center bottom $header-color;  
+  }
+}
+
+// custom volunteer page header
+
+.page-pages-show-volunteer-signup {
+  .header-container {
+    background: url($header-texture-3) no-repeat left bottom $header-color;  
+  }
+}
+
+// custom blog post header
+
+.page-pages-show-blog-post {
+  .header-container {
+    background: url($header-texture-4) no-repeat right bottom $header-color;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+// custom donation-wide header
+
+.page-type-donation {
+  .header-container {
+    background: url($header-texture-5) no-repeat center bottom $header-color;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+.page-type-suggestion-box {
+  .header-container {
+    background: url($header-texture-6) no-repeat center bottom $header-color;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+.page-type-survey {
+  .header-container {
+    background: url($header-texture-7) no-repeat center bottom $header-color;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+.page-type-vote-pledge {
+  .header-container {
+    background: url($header-texture-8) no-repeat center bottom $header-color;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+.page-type-event {
+  .header-container {
+    background: url($header-texture-9) no-repeat center bottom $header-color;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+.page-type-calendar {
+  .header-container {
+    background: url($header-texture-9) no-repeat center bottom $header-color;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+.page-type-feedback {
+  .header-container {
+    background: url($header-texture-11) no-repeat center bottom $header-color;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+.page-type-paid-membership {
+  .header-container {
+    background: url($header-texture-10) no-repeat center bottom $header-color;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}

@@ -1,0 +1,28 @@
+<div class="row-fluid">
+  <div class="span3">
+    <h3>Take Action</h3>
+    <ul class="footer-widget-menu">
+      <li><a href="{{ site.signup_page.url }}">Get Updates</a></li>
+      <li><a href="{{ site.volunteer_page.url }}">Volunteer</a></li>
+      <li><a href="{{ site.donation_page.url }}">Donate</a></li>
+      <li><a href="{{ site.membership_page.url }}">Join the Party</a></li>
+    </ul>
+  </div>
+  <div class="span3">
+    <h3>About Us</h3>
+    <ul class="footer-widget-menu">
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/conservative_party_of_canada">Conservative Party</a></li>
+      <li><a href="/riding">Riding</a></li>
+      <li><a href="/links">Links</a></li>
+</ul>
+  </div>
+  <div class="span3">
+    <h3>Write To Us</h3>
+    {% include "contactwidget" %}
+  </div>
+  <div class="span3">
+    <h3>Stay Connected</h3>
+    {% include "socialbuttonwidget" %}
+  </div>
+</div>

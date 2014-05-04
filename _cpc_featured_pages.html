@@ -1,0 +1,21 @@
+<div class="row-fluid">
+  {% for page in tag.most_recent_published_pages limit: 3 %}
+
+ <div class="span4">
+   <div class="page-featured-">
+     <div class="page-featured-image">
+       <a href="{{ page.url }}"><img src="{{ page.meta_image_url }}" /></a>
+     </div>
+     <div class="page-title">
+       <h4 class="text-center"><a href="{{ page.url }}">{{ page.headline }}</a></h4>
+     </div>
+     <div class="page_teaser text-center entry-summary">
+       <p>{{ page.excerpt | strip_html | truncatewords:50 }}</p>
+     </div>
+     <div class="continue_reading text-center">
+       <p><a class="button btn-block" href="{{ page.url }}">Learn more &rarr;</a></p>
+     </div>
+   </div>
+  </div>
+  {% endfor %}
+</div>  

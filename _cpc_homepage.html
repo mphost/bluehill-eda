@@ -1,0 +1,57 @@
+<div class="home-features-container" id="cpc_features">
+  
+    {% if page.features_count > 0 %}
+          
+           {% include "features" %}
+         
+        {% endif %}
+  
+</div><!-- /home-widget-container -->
+
+<div class="home-widget-container" id="cpc_action_center">
+  <div class="width-container">
+    {% include "cpc_action_center_widget" %}
+  </div>
+</div><!-- /home-widget-container -->
+
+
+{% subpage "events" with "cpc_upcoming_events" %}
+
+<div class="home-widget-container" id="cpc_eda_blog">
+  <div class="width-container">
+    {% include "cpc_blog_widget" %}
+  </div>
+</div><!-- /home-widget-container -->
+<!-- mp host twitter feed goes here
+<div class="home-widget-container" id="cpc_mp_tweets">
+  <div class="width-container">
+    
+  </div>
+</div><!-- /home-widget-container -->
+
+<div class="home-widget-container" id="cpc_newsdesk">
+  <div class="width-container">
+    {% include "cpc_newsdesk_widget" %}
+  </div>
+</div><!-- /home-widget-container -->
+
+<div class="home-widget-container" id="cpc_about_pages">
+  <div class="width-container">
+    {% tag "cpc" with "cpc_featured_pages" %}
+    
+  </div>
+</div><!-- /home-widget-container -->
+
+<div class="home-widget-container" id="cpc_about_pages">
+  <div class="width-container">
+    <div class="like-page text-center">
+      <strong>Do you like this page?</strong>
+      {% include "like_page" %}
+    </div>
+
+  {% if page.show_stream? %}
+  {% include "page_stream" %}
+  {% endif %}
+  </div>
+</div><!-- /home-widget-container -->
+

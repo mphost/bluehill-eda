@@ -1,0 +1,12 @@
+{% for attachment in page.attachments %}
+<a href="{{ attachment.url }}" class="fancybox" rel="gallery1"><img class="img-rounded img-polaroid" src="{{ attachment.url }}" width="300" height="200"></a>
+{% endfor %}
+<script>
+$(document).ready(function() {
+$(".fancybox").fancybox({
+openEffect	: 'none',
+closeEffect	: 'none'
+});
+});
+</script>
+

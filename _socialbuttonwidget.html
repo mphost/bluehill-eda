@@ -1,0 +1,11 @@
+{% if site.has_facebook_page? %}
+<a class="button supporter-nav-button btn-facebook" href="{{ site.broadcaster.facebook_page_profile_url }}">Facebook</a> {% endif %}
+{% if site.has_twitter? %}
+<a class="button supporter-nav-button btn-twitter" href="{{ site.broadcaster.twitter_profile_url }}">Twitter</a> {% endif %}
+{% for page in site.most_recent_pages %}
+ 
+{% if page.slug == "googleplus" %}
+<a class="button supporter-nav-button btn-google" href="/googleplus/">Google+</a>
+{% endif %}
+ 
+{% endfor %}
