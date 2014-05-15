@@ -1,8 +1,8 @@
-<div class="onecolumn-container clearfix">
+<div class="onecolumn-container clearfix" role="main"  itemprop="mainContentOfPage" {% include "cpc_seo_main" %}>
 
   <div class="columns-1-flash">{{ content_for_notifications }}</div>
 
-  <div class="content-{{ request.template  | replace: '_', '-' }}">
+  <div class="content-{{ request.template  | replace: '_', '-' }}" {% if page.type_name == "Blog Post"  %}itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting"{% elsif page.type_name == "Event" %} itemtype="http://schema.org/Event"{% elsif page.type_name == "Blog" %} {% else %}itemscope="itemscope" itemtype="http://schema.org/CreativeWork"{% endif %}>
     {% yield %}
   </div>
 

@@ -1,17 +1,16 @@
 <div class="twocolumn-container clearfix">
 
-  <div class="left-column">
-
+  <div class="left-column" role="main"  itemprop="mainContentOfPage" {% include "cpc_seo_main" %}>
     {{ content_for_notifications }}
 
-    <div class="content-{{ request.template  | replace: '_', '-' }}">
+    <div class="content-{{ request.template  | replace: '_', '-' }}" {% if page.type_name == "Blog Post"  %}itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting"{% elsif page.type_name == "Event" %}itemscope="itemscope" itemtype="http://schema.org/Event"{% elsif page.type_name == "Blog" %} {% else %}itemscope="itemscope" itemtype="http://schema.org/CreativeWork"{% endif %}>
       {% yield %}
     </div>
 
   </div>
   <!-- .left_column -->
 
-  <div class="right-column">
+  <div class="right-column" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 
     {% if request.logged_in? %}
 
@@ -20,10 +19,10 @@
     {% else %}
 
     <ul class="supporter-nav">
-      <li><a href="{{ request.facebook_connect_url }}"><i class="icon-facebook-squared"></i> Sign in with Facebook</a>
+      <li class="menu-facebook"><a href="{{ request.facebook_connect_url }}"><i class="icon-facebook-squared"></i> Sign in with Facebook</a>
       </li>
-      <li><a href="{{ request.twitter_connect_url }}"><i class="icon-twitter-squared"></i> Sign in with Twitter</a></li>
-      <li><a href="/login"><i class="icon-user"></i> Sign in with Email</a></li>
+      <li class="menu-twitter"><a href="{{ request.twitter_connect_url }}"><i class="icon-twitter-squared"></i> Sign in with Twitter</a></li>
+      <li class="menu-email"><a href="/login"><i class="icon-user"></i> Sign in with Email</a></li>
     </ul>
 
     {% if site.has_signup_page? %}
@@ -47,7 +46,7 @@
       <div class="box">
         {% if site.has_facebook_page? %}
         <div class="desktop-visible">
-          <div class="fb-like-box" data-href="{{ site.broadcaster.facebook_page_profile_url }}" data-width="240" data-show-faces="true" data-stream="false" data-header="false"></div>
+          <div class="fb-like-box" data-href="{{ site.broadcaster.facebook_page_profile_url }}" data-width="240" data-show-faces="true" data-stream="false" data-border="false" data-header="false" ></div>
         </div>
         <div class="mobile-visible">
           <div class="fb-like-box" data-href="{{ site.broadcaster.facebook_page_profile_url }}" data-width="240" data-stream="false"></div>
@@ -59,7 +58,7 @@
 
         {% if site.has_twitter? %}
         <div class="padtopmore">
-          <a href="{{ site.broadcaster.twitter_profile_url }}" class="twitter-follow-button" data-show-count="false">Follow @{{ site.broadcaster.twitter_login }} on Twitter</a>
+          <a href="{{ site.broadcaster.twitter_profile_url }}" class="twitter-follow-button" data-show-count="true">Follow @{{ site.broadcaster.twitter_login }} on Twitter</a>
         </div>
         {% endif %}
         {% if page and page.has_rss? %}

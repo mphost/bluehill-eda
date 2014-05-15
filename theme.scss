@@ -21,7 +21,7 @@ $theme-color-5: rgba(137, 155, 167, 0.6);
 
 // general success and error colors
 $red: #ef3b35;
-$green: #619114;
+$green: #12a35f;
 
 // social colors
 $theme-color-twitter: #1daced;
@@ -355,7 +355,9 @@ body {
 header {
   float: left;
   padding: 0px 0 0 0;
-  max-width: 27%;
+  min-height:56px;
+  vertical-align: middle;
+	align-content:center;
 }
 
 // if the site has a logo, center it it above content in mobile view

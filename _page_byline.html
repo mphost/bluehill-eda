@@ -1,0 +1,12 @@
+{% if page.type_name == "Event" %}
+<div class="byline entry-meta">
+  Posted by {{ page.author.published_name_linked }} <span class="pc">{{ page.author.capital_amount_format }}</span> on {{ page.published_at | date: '%B %d, %Y' }}
+  {% if site.has_rule_page? and request.logged_in? %}&middot; <a href="{{ page.flag_url }}" class="flag">Flag</a>{% endif %}
+</div>
+{% else %}
+<div class="byline entry-meta"> 
+  Posted by <span class="entry-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><a href="{{ page.author.full_profile_url }}" class="entry-author-link" itemprop="url" rel="author"><span class="entry-author-name" itemprop="name">{{ page.author.published_name }}</span></a></span> <span class="pc">{{ page.author.capital_amount_format }}</span> on <time class="entry-time" itemprop="datePublished" datetime="{{ page.published_at | date: '%c' }}">{{ page.published_at | date: '%B %d, %Y' }}</time>  
+  {% if site.has_rule_page? and request.logged_in? %}&middot; <a href="{{ page.flag_url }}" class="flag">Flag</a>{% endif %}
+  <time class="hide updated" itemprop="dateModified" datetime="{{ page.published_at | date: '%c' }}">{{ page.published_at | date: '%B %d, %Y' }}</time>
+</div>
+{% endif %}

@@ -251,7 +251,7 @@ background: #003d77
       opacity:1;
       font-weight:light;
     }
-  span {
+  i, span {
     color:$theme-color-1;
     font-size:64px;
     -webkit-transition: all 0.3s ease-in-out 0s;
@@ -266,7 +266,45 @@ background: #003d77
       -ms-transform:scale(1.14,1.14); 
       -webkit-transform:scale(1.14,1.14);
       transform:scale(1.14,1.14);
-      span {
+      i, span {
+        font-size:50px;
+        opacity:1;
+        color:#fff;
+      }
+    }
+}
+.home-widget-container .action-success {
+  text-align:center;
+  display:block;
+  margin:0 auto;
+  padding:18px 0 0;
+  width:100px;
+  height:100px;
+  @include border-radius(70px);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+  [class^="icon-"]:before, [class*=" icon-"]:before {
+      opacity:1;
+      font-weight:light;
+    }
+    i,
+  span {
+    color:$green;
+    font-size:64px;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    opacity:1;
+  }
+  &:hover {
+      padding:25px 0 0;
+      background: $green;
+      color:#fff;
+      -ms-transform:scale(1.14,1.14); 
+      -webkit-transform:scale(1.14,1.14);
+      transform:scale(1.14,1.14);
+      i, span {
         font-size:50px;
         opacity:1;
         color:#fff;
@@ -298,3 +336,68 @@ float: right;
 margin: 0px;
 margin-left: 30px;
 }
+
+.action-checklist {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      list-style: none;
+      padding:1em;
+      margin-bottom:0;
+      border-bottom:1px solid #ececec;
+      .fa {
+        margin-right:1em;
+      }
+      &:nth-child(even) {
+          background-color: #fbfbfd;
+        }
+    }
+    .action-success {
+      color: lighten($green, 15);        
+    }
+    .action-required {
+      color: $red; 
+      @include transition(all 0.2s ease-in);
+      .fa {
+        @include transition(all 0.1s ease-in);
+        margin-right:15px;
+      }
+      a {         
+        color: $red;
+        border-bottom: 1px dotted $red;
+      }
+      &:hover { 
+          .fa {
+            margin-right:5px;
+            margin-left:10px;
+          }
+        }
+    }
+  }
+}
+
+.topnav_bar {
+  .width-container {
+    width: 90%;
+    margin: 0 5%;
+  }
+}
+
+.site-header {
+  background: url("cpc_64_w2.png") no-repeat left center;
+  padding-left: 70px;
+  margin:5px 0 0;
+  h1 {
+    margin:0;
+    line-height:1;
+    font:24px "Franklin Gothic Medium", Arial, sans-serif;;
+    font-weight:normal;
+    font-style:italic;
+    font-variant: small-caps;
+  }
+}
+
+
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css");

@@ -68,6 +68,98 @@
 </ul>
 {% endif %}
 
+<!--start supporter checklist-->
+<h4 class="padbottommore center text-center">Take Action</h4> 
+  <div id="supporter_checklist" class="action-checklist box">
+    <ul>
+      
+      <!--facebook--> 
+      {% if request.current_signup.has_facebook_authorization? %}
+      <li class="action-success"><i class="fa fa-check-square"></i> Connected your Facebook account </li>
+      {% else %}
+      <li class="action-required"><i class="fa fa-hand-o-right"></i> <a href="{{ request.facebook_connect_url }}">Connect your Facebook account</a> </li>   
+      {% endif %}
+      <!--/facebook--> 
+      
+      <!--twitter--> 
+      {% if request.current_signup.has_twitter_authorization? %}
+      <li class="action-success"><i class="fa fa-check-square"></i> Connected your Twitter account </li>
+      {% else %}
+      <li class="action-required"><i class="fa fa-hand-o-right"></i> <a href="{{ request.twitter_connect_url }}">Connect your Twitter account</a> </li>
+      {% endif %}
+      
+      <!--/twitterk--> 
+      
+      <!--email address--> 
+      {% if request.current_signup.has_email? %}
+      <li class="action-success"><i class="fa fa-check-square"></i> Added you email address </li>
+      {% else %}
+      <li class="action-required"><i class="fa fa-hand-o-right"></i> <a href="{{ request.current_signup.settings_url }}">Add you email address</a> </li>
+      {% endif %}
+      
+      <!--/email address--> 
+      
+      <!--petition 
+      {% if request.current_signup.tags contains "signed_petition" %} 
+      <li class="action-success"><i class="fa fa-check-square"></i> Signed the petition </li>
+      {% else %}
+      <li class="action-required"><i class="fa fa-hand-o-right"></i> <a href="/petition">Sign the petition</a> </li>
+      {% endif %}
+      
+      <!--/petition--> 
+      
+      <!--volunteer--> 
+      {% if request.current_signup.is_volunteer? %}
+      <li class="action-success"><i class="fa fa-check-square"></i> Signed up to volunteer </li>
+      {% else %}
+      <li class="action-required"><i class="fa fa-hand-o-right"></i> <a href="{{ site.volunteer_page.url }}">Sign up to volunteer</a> </li>
+      {% endif %}
+      
+      
+      <!--/volunteer--> 
+      
+      <!--donate-->
+{% if request.current_signup.has_donated? %}
+<li class="action-success"><i class="fa fa-check-square"></i> Made a donation </li>
+{% else %}
+<li class="action-required"><i class="fa fa-hand-o-right"></i> <a href="{{ site.donation_page }}">Make a donation</a> </li>
+{% endif %}
+
+
+<!--/donate-->
+      
+      <!--survey 
+
+<li class="action-required"><i class="fa fa-hand-o-right"></i> Take the survey </li>
+<li class="action-success"><i class="fa fa-check-square"></i> <a href="/your_voice">Taken survey</a> </li>
+
+<!--/survey-->
+      
+      <!--lawn sign-->
+{% if request.current_signup.tags contains "lawn_sign" %} 
+<li class="action-success"><i class="fa fa-check-square"></i> Ordered lawn sign </li>
+{% else %}
+<li class="action-required"><i class="fa fa-hand-o-right"></i> <a href="/blog">Order lawn sign</a> </li>
+{% endif %}  
+
+<!--/lawn sign-->
+  <!--Voting Address 
+{% if signup.has_full_address? %}
+<li class="action-success"><i class="fa fa-check-square"></i> Confirmed Voting Address </li>
+{% else %}
+<li class="action-required"><i class="fa fa-hand-o-right"></i> <a href="{{ request.current_signup.settings_url }}">Confirm Voting Address</a> </li>
+{% endif %}
+
+<!--/tell story-->
+      
+      
+    </ul>
+    
+  </div>
+<!--supporter_widget-->
+
+<!--/.checklist-->
+
 
 <ul class="supporter-nav">
 

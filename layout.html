@@ -15,6 +15,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="theme.scss" type="text/css">
   <link rel="stylesheet" href="tablet-and-desktop.scss" type="text/css" media="screen and (min-width: 768px)">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <script type="text/javascript">
   WebFontConfig = {
     google: { families: [ 'Open+Sans:400,800:latin' ] }
@@ -58,37 +59,51 @@
 <script type="text/javascript" src="jquery.ui.effect-slide.min.js"></script>
 <script type="text/javascript" src="staged-donations.js"></script>
 </head>
-<body class="aware-theme v2-theme page-{{ page.id }} page-{{ page.slug }} {{ page.page_class_name }} js">
+<body class="aware-theme v2-theme theme-{{ site.facebook_colorscheme }} {{ site.slug }} page-{{ page.id }} page-{{ page.slug }}  {{ page.page_class_name }} js" itemscope="itemscope" {% if page.name == 'About' %}itemtype="http://schema.org/AboutPage"{% elsif page.name == 'Contact' %}itemtype="http://schema.org/ContactPage" {% else %}itemtype="http://schema.org/WebPage" {% endif %} >
   <div id="pattern" class="pattern">
     <div class="wrap" id="wrap">
       <div id="body" class="page-{{ request.template | replace: '_', '-' }}">
 
         
         
-        <div class="header-container clearfix" >
+        <div class="header-container clearfix" {% if page.features_count > 0 %} style="background: url({% for feature in page.features %}{{ feature.image_url }}{% endfor %} ) no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;"{% endif %}>
           <div class="topnav_bar">
           <div class="width-container clearfix">
           {% include "nav" %}       
-            {% if site.has_meta_image? %}
-              <div class="site-logo">
-                <header><a href="/"><img src="{{ site.meta_image_url }}"></a></header>
-              </div>
-            {% else %}
-              <header>
-                <h1 class="title"><a href="/">{{ site.long_name }}</a></h1>
-              </header>
-            {% endif %}
+            
+              <a href="/"><header class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">                
+                <h1 class="title site-title" itemprop="headline">{{ site.headline }}</h1>
+                <p class="hide site-description" itemprop="description">{{ site.subheadline }}</p>
+              </header></a>
+            
           </div>
         </div>
           <!-- .width-container -->
         </div>
         <!-- .header-container -->
 
-        {% if page.features_count > 0 %}
+        
+        
+        {% if page.is_homepage? == true %}
+        <div class="main-container" id="middle">          
+          <div class="width-container clearfix">
+            <div class="columns-1-flash">{{ content_for_notifications }}</div>
+          </div>
+            <div class="clearfix">
+              {% include "cpc_homepage" %}
+            </div>
+            <!-- /onecolumn -->          
+        </div>
+        <!-- .main-container -->
+        
+        {% else %}
+        
+        {% if page.features_count > 1 %}
           <div class="width-container">
            {% include "features" %}
           </div>
-        {% endif %}
+        {% endif %}   
+        
 
         <div class="main-container" id="middle">
           <div class="main width-container clearfix">
@@ -103,7 +118,10 @@
           <!-- .main -->
         </div>
         <!-- .main-container -->
-<footer class="clearfix">
+        
+        {% endif %}
+        
+<footer class="clearfix site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter" >
 
 {{ content_for_footer }}
 
@@ -175,7 +193,7 @@
     <!-- #wrap -->
   </div>
   <!-- #pattern -->
-  
+  <script type="text/javascript" src="scroll-header.js"></script>
 </body>
 </html>
 

@@ -1,7 +1,9 @@
 {% include "breadcrumbs" %}
-
-<div class="headline">
-  <h2>{{ page.headline }}</h2>
+{% for attachment in page.attachments limit:1  %}
+<a href="{{ attachment.url }}" title="{{ page.headline }}"><img class="entry-image img-rounded " itemprop="image" src="{{ attachment.url }}" alt="{{ page.headline }}" original-title="{{ page.headline }}" /></a>
+{% endfor %}
+<div class="headline padtopmore entry-header">
+  <h2 class="entry-title" itemprop="headline">{{ page.headline }}</h2>
 
   {% if page.has_author? %}
   {% include "page_byline" %}
@@ -11,15 +13,16 @@
 <div id="content">
 
   <div id="intro" class="intro">
-    <div class="content">
+    <div class="content entry-content" itemprop="articleBody">
       {{ page.blog_post.content_full }}
     </div>
   </div>
   
    {% include "gallery" %}
+  
 
   {% if page.tags_count > 0 %}
-  <div class="page-tags">
+  <div class="page-tags" itemprop="articleSection">
     {% include "page_tags" with page %}
   </div>
   {% endif %}
